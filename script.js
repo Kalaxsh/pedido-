@@ -1,5 +1,6 @@
 function sim() {
     alert("Você aceitou me dar o precioso!! (finalmente)")
+    
 }
 
 function desvia(t) {
