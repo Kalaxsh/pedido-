@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Programação Estruturada</title>
+</head>
+<body>
+    <h1>Entrada do Programa</h1>
+    N1: <input type="text" id="n1"> <br />
+    N2: <input type="text" id="n2"> <br />
+    N3: <input type="text" id="n3"> <br />
+    <button onclick='executarExercicio()'>OK</button>
+    <p id="resultado"></p>
+    
+    <script>
+        function obterValor(id) {
+            const valor = document.getElementById(id).value.trim();
+            if (valor === '') {
+                throw new Error(`Campo ${id} não pode estar vazio.`);
+            }
+            return Number(valor);
+        }
+
+        function calcularMedia(n1, n2, n3) {
+            const media = (n1 + n2 + n3) / 3;
+            if (isNaN(media) || media < 0 || media > 10) {
+                throw new Error(`Média inválida: ${media}.`);
+            }
+            return media;
+        }
+
+        function verificarResultado(media) {
+            if (media >= 7) {
+                return `Aprovado com média ${media}`;
+            } else if (media >= 3) {
+                return `Aluno em recuperação, pois a média foi ${media}`;
+            } else {
+                return `Aluno reprovado, pois ficou com média ${media}`;
+            }
+        }
+
+        function imprimirNaTela(mensagem) {
+            document.getElementById('resultado').innerHTML = mensagem;
+        }
+
+        function executarExercicio() {
+            try {
+                const n1 = obterValor('n1');
+                const n2 = obterValor('n2');
+                const n3 = obterValor('n3');
+                
+                const media = calcularMedia(n1, n2, n3);
+                
+                const resultado = verificarResultado(media);
+                
+                imprimirNaTela(resultado);
+            } catch (error) {
+                imprimirNaTela(error.message);
+            }
+        }
+    </script>
+</body>
+</html>
