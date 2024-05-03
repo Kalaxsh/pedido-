@@ -1,62 +1,90 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Programação Estruturada</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de HTML com Bootstrap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Entrada do Programa</h1>
-    N1: <input type="text" id="n1"> <br />
-    N2: <input type="text" id="n2"> <br />
-    N3: <input type="text" id="n3"> <br />
-    <button onclick='executarExercicio()'>OK</button>
-    <p id="resultado"></p>
-    
-    <script>
-        function obterValor(id) {
-            const valor = document.getElementById(id).value.trim();
-            if (valor === '') {
-                throw new Error(`Campo ${id} não pode estar vazio.`);
-            }
-            return Number(valor);
-        }
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Meu Site</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Serviços</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contato</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-        function calcularMedia(n1, n2, n3) {
-            const media = (n1 + n2 + n3) / 3;
-            if (isNaN(media) || media < 0 || media > 10) {
-                throw new Error(`Média inválida: ${media}.`);
-            }
-            return media;
-        }
+  <main class="container my-5">
+    <section>
+      <h1>Artigos</h1>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Título do Artigo</h5>
+              <p class="card-text">Descrição do artigo.</p>
+              <a href="#" class="btn btn-primary">Leia mais</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Título do Artigo</h5>
+              <p class="card-text">Descrição do artigo.</p>
+              <a href="#" class="btn btn-primary">Leia mais</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Título do Artigo</h5>
+              <p class="card-text">Descrição do artigo.</p>
+              <a href="#" class="btn btn-primary">Leia mais</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        function verificarResultado(media) {
-            if (media >= 7) {
-                return `Aprovado com média ${media}`;
-            } else if (media >= 3) {
-                return `Aluno em recuperação, pois a média foi ${media}`;
-            } else {
-                return `Aluno reprovado, pois ficou com média ${media}`;
-            }
-        }
+    <aside>
+      <h2>Notícias</h2>
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action">Notícia 1</a>
+        <a href="#" class="list-group-item list-group-item-action">Notícia 2</a>
+        <a href="#" class="list-group-item list-group-item-action">Notícia 3</a>
+      </div>
+    </aside>
+  </main>
 
-        function imprimirNaTela(mensagem) {
-            document.getElementById('resultado').innerHTML = mensagem;
-        }
+  <footer class="bg-dark text-light text-center py-4">
+    <p>&copy; 2024 Meu Site. Todos os direitos reservados.</p>
+  </footer>
 
-        function executarExercicio() {
-            try {
-                const n1 = obterValor('n1');
-                const n2 = obterValor('n2');
-                const n3 = obterValor('n3');
-                
-                const media = calcularMedia(n1, n2, n3);
-                
-                const resultado = verificarResultado(media);
-                
-                imprimirNaTela(resultado);
-            } catch (error) {
-                imprimirNaTela(error.message);
-            }
-        }
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
